@@ -26,7 +26,7 @@ server.listen(8080, () => {
 });
 
 const MONGO_URL =
-  'mongodb+srv://imdariful:BfGgv8c103pMVy2F@rest-api-typescript.o5nrrst.mongodb.net/?retryWrites=true&w=majority';
+  'mongodb+srv://<username password>@rest-api-typescript.o5nrrst.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
