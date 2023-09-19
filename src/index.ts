@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config({ path: __dirname + '/.env' });
 import express from 'express';
 import http from 'http';
 import bodyPrser from 'body-parser';
@@ -8,6 +10,7 @@ import mongoose from 'mongoose';
 import router from './router';
 
 const app = express();
+const PORT = process.env.PORT;
 
 app.use(
   cors({
@@ -21,12 +24,11 @@ app.use(bodyPrser.json());
 
 const server = http.createServer(app);
 
-server.listen(8080, () => {
+server.listen(PORT, () => {
   console.log(`Server running on http://localhost:8080`);
 });
 
-const MONGO_URL =
-  'mongodb+srv://<username password>@rest-api-typescript.o5nrrst.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URL: number = process.env.MONGO_URI;
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
